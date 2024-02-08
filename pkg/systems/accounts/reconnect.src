@@ -8,9 +8,8 @@ use os;
 
 include ":accounts:accounts";
 
-
 program Logon(who)
-	ACCT_SetLastLogin(who.acct);
+  ACCT_SetLastLogin( who.acct );
 
-	return 1;
+  return 1;
 endprogram

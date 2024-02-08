@@ -2,5 +2,5 @@ use uo;
 use os;
 
 program on_remove(unused who, unused backpack, item, unused movetype)
-	EraseObjProperty(item, "#DestroyAt");
+  EraseObjProperty( item, "#DestroyAt" );
 endprogram

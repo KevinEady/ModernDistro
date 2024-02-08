@@ -10,12 +10,11 @@ include ":attributes:attributes";
 include ":damage:damage";
 
 program TimedScript_endColdResistBoost(params)
-	var mobile := params[1];
-	var points := CInt(GetObjProperty(mobile, "ColdResistBoost"));
-	points := -1 * points;
-	ModifyResistance(mobile, DMG_COLD, points);
-	EraseObjProperty(mobile, "ColdResistBoost");
+  var mobile := params[1];
+  var points := CInt( GetObjProperty( mobile, "ColdResistBoost" ) );
+  points := -1 * points;
+  ModifyResistance( mobile, DMG_COLD, points );
+  EraseObjProperty( mobile, "ColdResistBoost" );
 
-	return 1;
+  return 1;
 endprogram
-

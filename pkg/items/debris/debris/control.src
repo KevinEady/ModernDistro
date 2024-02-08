@@ -8,11 +8,10 @@ use os;
 
 include ":timeutils:time";
 
-program Control_Debris( debris )
+program Control_Debris(debris)
+  Sleep( SEC_HOUR );
 
-	Sleep( SEC_HOUR );
-	
-	DestroyItem( debris );
- 
-        return 1;
+  DestroyItem( debris );
+
+  return 1;
 endprogram

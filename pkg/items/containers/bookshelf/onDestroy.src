@@ -14,11 +14,9 @@ use datafile;
 
 include ":sysbook:spawnShelf";
 
+program onBookshelfDestroy(bookshelf)
+  var shelves := RetrieveOrInitBookshelfDB();
+  shelves.DeleteElement( bookshelf.serial );
 
-program onBookshelfDestroy( bookshelf)
-
-	var shelves := RetrieveOrInitBookshelfDB();
-	shelves.DeleteElement(bookshelf.serial);
-
-	return 1;
+  return 1;
 endprogram

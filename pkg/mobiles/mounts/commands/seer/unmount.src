@@ -4,6 +4,5 @@
 use uo;
 use os;
 
-program command_Mount( unused who )
-
+program command_Mount(unused who)
 endprogram

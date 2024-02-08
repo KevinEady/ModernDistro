@@ -1,16 +1,14 @@
 use uo;
 use os;
 
-program install_shovel_methods( item )
+program install_shovel_methods(item)
+  item := item; // Avoid Compiler Warnings...
 
-	item := item; // Avoid Compiler Warnings...
-
-	return 1;
+  return 1;
 endprogram
 
-exported function IsShovel( item )
+exported function IsShovel( item)
+  item := item; // Avoid Compiler Warnings...
 
-	item := item; // Avoid Compiler Warnings...
-
-	return 1;
+  return 1;
 endfunction

@@ -3,6 +3,6 @@
 ///////////////////////////////////////////////
 use uo;
 
-program textcmd_play_sfx( who, effect )
-	PlaySoundEffect( who, CInt(effect) );
+program textcmd_play_sfx(who, effect)
+  PlaySoundEffect( who, CInt( effect ) );
 endprogram

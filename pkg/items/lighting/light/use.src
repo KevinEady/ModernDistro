@@ -2,12 +2,10 @@ use uo;
 use os;
 include ":itemutils:itemUtil";
 
-program useLight( who, light )
-
-	if( !useItem_check( who, light, DEFAULT_ITEM ))
-		return 0;
-	endif
-	light.Toggle();
-	return 1;
-
+program useLight(who, light)
+  if ( !useItem_check( who, light, DEFAULT_ITEM ))
+    return 0;
+  endif
+  light.Toggle();
+  return 1;
 endprogram

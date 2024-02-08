@@ -1,8 +1,7 @@
 use uo;
 
-program controlScript( plank )
+program controlScript(plank)
+  plank.Retract();
 
-	plank.Retract();
-
-	return 1;
+  return 1;
 endprogram

@@ -1,6 +1,6 @@
 use uo;
 
-program thawme( gm )
-    gm.frozen := 0;
-    PrintTextAbovePrivate( gm, "Fly!  Be free!", gm );
+program thawme(gm)
+  gm.frozen := 0;
+  PrintTextAbovePrivate( gm, "Fly!  Be free!", gm );
 endprogram

@@ -1,5 +1,4 @@
 use os;
 
-while (1)
-    // Sleep( 600 );
-endwhile
+while ( 1) endwhile
+// Sleep( 600 );

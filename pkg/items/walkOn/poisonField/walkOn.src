@@ -8,13 +8,13 @@ use os;
 use util;
 
 program walkOn(mobile, tile)
-	var pid := CInt(GetObjProperty(tile, "#PID"));
-	if ( pid )
-		var process := GetProcess(pid);
-		process.SendEvent(mobile);
-		
-		return 1;
-	endif
-	
-	return 0;
+  var pid := CInt( GetObjProperty( tile, "#PID" ) );
+  if ( pid)
+    var process := GetProcess( pid );
+    process.SendEvent( mobile );
+
+    return 1;
+  endif
+
+  return 0;
 endprogram

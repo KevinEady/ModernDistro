@@ -6,9 +6,9 @@ use uo;
 use os;
 
 program TimedScript_EndScript(params)
-	var mobile := params[1];
+  var mobile := params[1];
 
-	CancelTarget(mobile);
+  CancelTarget( mobile );
 
-	return 1;
+  return 1;
 endprogram

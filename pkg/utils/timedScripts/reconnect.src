@@ -8,10 +8,8 @@ use os;
 
 include ":timedScripts:timedScripts";
 
-
 program reconnect(who)
-	TS_StartController(who);
+  TS_StartController( who );
 
-	return 1;
+  return 1;
 endprogram
-
