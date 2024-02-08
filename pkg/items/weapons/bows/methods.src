@@ -6,13 +6,9 @@
 use uo;
 
 program Install()
-
-	return 1;
+  return 1;
 endprogram
 
-exported function IsBow( unused bow )
-
-	return 1;
-
+exported function IsBow( unused bow)
+  return 1;
 endfunction
-

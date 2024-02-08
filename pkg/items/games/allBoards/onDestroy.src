@@ -6,12 +6,11 @@
 use uo;
 use os;
 
-program OnDestroy( chessboard )
+program OnDestroy(chessboard)
+  foreach item in ( EnumerateItemsInContainer( chessboard ) )
+    DestroyItem( item );
+    SleepMS( 5 );
+  endforeach
 
-	foreach item in ( EnumerateItemsInContainer( chessboard ))
-		DestroyItem( item );
-                SleepMS(5);
-	endforeach
-	
-	return 1;
+  return 1;
 endprogram

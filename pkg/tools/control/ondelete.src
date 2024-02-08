@@ -7,10 +7,9 @@ use datafile;
 
 include ":datafile:datafile";
 
-program onDelete( who )
+program onDelete(who)
+  var data_file := DFOpenDataFile( ":control:usrsettings", DF_CREATE );
+  data_file.DeleteElement( Hex( who.serial ) );
 
-	var data_file := DFOpenDataFile( ":control:usrsettings", DF_CREATE );
-	data_file.DeleteElement( Hex( who.serial ));
-
-	return 1;
+  return 1;
 endprogram

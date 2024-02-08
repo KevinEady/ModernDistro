@@ -8,17 +8,17 @@ use uo;
 include ":datafile:datafile";
 
 program Install()
-	return 1;
+  return 1;
 endprogram
 
-exported function IsguildStone( unused item )
-	return 1;
+exported function IsguildStone( unused item)
+  return 1;
 endfunction
 
-exported function SetGuild( item, guildid )
-	return SetObjProperty( item, "GuildID", guildid );
+exported function SetGuild( item, guildid)
+  return SetObjProperty( item, "GuildID", guildid );
 endfunction
 
-exported function GetGuild( item )
-	return CInt( GetObjProperty( item, "GuildID" ));
+exported function GetGuild( item)
+  return CInt( GetObjProperty( item, "GuildID" ) );
 endfunction

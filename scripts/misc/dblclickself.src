@@ -5,21 +5,21 @@ include ":mounts:mounts";
 include "include/eventID";
 include ":itemUtils:itemdesc";
 
-program dblclickself( who )
-	var mount := GetEquipmentByLayer( who, 25 );
-	if (!mount)
-		OpenPaperdoll( who, who );
-		return;
-	endif
-	if (who.warmode)
-		OpenPaperdoll( who, who );
-		return;
-	endif
-	// This allows a script to run prior to unequipping
-	// a mount for any efects or mods to the player.
-	var unequip := GetObjProperty(mount, "Unequip");
-	if(unequip)
-		Run_Script(unequip, {who});
-	endif
-	MP_Unmount( who );
+program dblclickself(who)
+  var mount := GetEquipmentByLayer( who, 25 );
+  if ( !mount)
+    OpenPaperdoll( who, who );
+    return;
+  endif
+  if ( who.warmode)
+    OpenPaperdoll( who, who );
+    return;
+  endif
+  // This allows a script to run prior to unequipping
+  // a mount for any efects or mods to the player.
+  var unequip := GetObjProperty( mount, "Unequip" );
+  if ( unequip)
+    Run_Script( unequip, { who } );
+  endif
+  MP_Unmount( who );
 endprogram

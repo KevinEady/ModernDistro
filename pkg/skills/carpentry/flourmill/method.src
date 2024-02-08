@@ -4,20 +4,13 @@ use os;
 include ":itemutils:itemdesc";
 
 program Install()
-
-	return 1;
+  return 1;
 endprogram
 
-exported function IsFlourMill( unused flourmill )
-
-	return 1;
-
+exported function IsFlourMill( unused flourmill)
+  return 1;
 endfunction
 
-exported function ObjectKind( unused fireplace )
-
-		return "mill";
-
+exported function ObjectKind( unused fireplace)
+  return "mill";
 endfunction
-
-

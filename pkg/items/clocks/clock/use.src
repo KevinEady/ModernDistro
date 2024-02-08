@@ -7,7 +7,7 @@ use uo;
 include "include/clock";
 
 program UseScript(who, item)
-//	PrintTextAbovePrivate(item, GetGameHour()+":"+GetGameMinute(), who);
-	PrintTextAbovePrivate(item, ("Time of Day: " + GetTimeofDay()), who);
-	return 1;
+  //	PrintTextAbovePrivate(item, GetGameHour()+":"+GetGameMinute(), who);
+  PrintTextAbovePrivate( item, ( "Time of Day: " + GetTimeofDay() ), who );
+  return 1;
 endprogram

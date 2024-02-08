@@ -4,11 +4,11 @@
 
 use uo;
 
-program textcmd_kick( who )
-    SendSysMessage( who, "Whom do you want to kick?" );
+program textcmd_kick(who)
+  SendSysMessage( who, "Whom do you want to kick?" );
 
-    var victim := Target( who );
-    if (victim)
-        DisconnectClient( victim );
-    endif
+  var victim := Target( who );
+  if ( victim)
+    DisconnectClient( victim );
+  endif
 endprogram

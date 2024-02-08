@@ -8,13 +8,13 @@ include "include/client";
 // to its name.
 /////////////////////////////////
 program copy_title_to_name(who, unused textline)
-    while(1)
-        var item := Target(who);
-        if (!item)
-            SendSysMessage(who, "Cancelled.", color := 33);
-            return;
-        endif
-        item.name := item.GetTitle();
-        SendSysMessage(who, item.GetTitle());
-    endwhile
+  while ( 1)
+    var item := Target( who );
+    if ( !item)
+      SendSysMessage( who, "Cancelled.", color := 33 );
+      return;
+    endif
+    item.name := item.GetTitle();
+    SendSysMessage( who, item.GetTitle() );
+  endwhile
 endprogram
