@@ -5,9 +5,9 @@
 use uo;
 
 program Install()
-	return 1;
+  return 1;
 endprogram
 
 exported function IsFood( unused item )
-	return 1;
+  return 1;
 endfunction

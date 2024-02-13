@@ -7,15 +7,14 @@ use os;
 include ":gumps:gumps";
 include ":virtue:virtue";
 
-		program gump_virtue_gump(who)
+program gump_virtue_gump( who )
 
-			var params := {who};
-			Start_Script(":virtue:virtueGump", params);
+  var params := { who };
+  Start_Script( ":virtue:virtueGump", params );
 
-		endprogram
-//	var virtues :=	{"Valor", "Honor", "Compassion", "Justice", "Honesty", "Spirituality", "Sacrifice", "Humility"};
-
-/*	var valorAmount := 0;
+endprogram
+// var virtues :=	{"Valor", "Honor", "Compassion", "Justice", "Honesty", "Spirituality", "Sacrifice", "Humility"};
+/* var valorAmount := 0;
 	var honorAmount := 0;
 	var compassionAmount := 0;
 	var justiceAmount := 0;
@@ -321,4 +320,4 @@ function inRange(val, low, high)
 	endif
 
 endfunction
-*/
+ */

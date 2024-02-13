@@ -1,4 +1,4 @@
-/*
+/* 
 		onDestroy.src for bookshelves.
 
 		This programme removes a bookshelf from the
@@ -8,17 +8,16 @@
         Maintained by The POL Distro Team
 
         2018-07-25
-*/
+ */
 use uo;
 use datafile;
 
 include ":sysbook:spawnShelf";
 
+program onBookshelfDestroy( bookshelf )
 
-program onBookshelfDestroy( bookshelf)
+  var shelves := RetrieveOrInitBookshelfDB();
+  shelves.DeleteElement( bookshelf.serial );
 
-	var shelves := RetrieveOrInitBookshelfDB();
-	shelves.DeleteElement(bookshelf.serial);
-
-	return 1;
+  return 1;
 endprogram
