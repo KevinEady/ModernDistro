@@ -5,17 +5,11 @@ on: [push, pull_request]
 jobs:
   compile_test:
     runs-on: "ubuntu-latest"
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - polserver-zip: "https://github.com/polserver/polserver/releases/download/NightlyRelease/Nightly-Linux-clang.zip"
-          - polserver-zip: "https://github.com/KevinEady/polserver/releases/download/add-classes-0181f2e/Nightly-Linux-clang.zip"
     steps:
       - uses: actions/checkout@v2
       - name: Install Nightly ecompile
         run: |
-          wget -q -O Nightly-Linux-clang.zip ${{ matrix.config.polserver-zip }}
+          wget -q -O Nightly-Linux-clang.zip "https://github.com/polserver/polserver/releases/download/NightlyRelease/Nightly-Linux-clang.zip"
           unzip Nightly-Linux-clang.zip
           rm -f *_dbg.zip
           rm -f Nightly-Linux-clang.zip
@@ -32,6 +26,21 @@ jobs:
           echo "CompileAspPages=1" >> scripts/ecompile.cfg
           sudo apt-get update
           sudo apt-get install clang-14 -y
-      - name: Compile
+      - name: Compile NightlyRelease
         run: |
+          TIMEFORMAT=%R
+          for i in {1..2}; do time ./scripts/ecompile -A -b -T -f -q >/dev/null 2>&1; done
+      - name: Cleanup and Install add-classes-0181f2e ecompile
+        run: |
+          rm -rf polserver*
+          wget -q -O Nightly-Linux-clang.zip "https://github.com/KevinEady/polserver/releases/download/add-classes-0181f2e/Nightly-Linux-clang.zip"
+          unzip Nightly-Linux-clang.zip
+          rm -f *_dbg.zip
+          rm -f Nightly-Linux-clang.zip
+          unzip -j -o polserver*.zip
+          echo "Unzip Complete"
+          cp ecompile scripts/
+      - name: Compile add-classes-0181f2e
+        run: |
+          TIMEFORMAT=%R
           for i in {1..2}; do time ./scripts/ecompile -A -b -T -f -q >/dev/null 2>&1; done
