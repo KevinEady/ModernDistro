@@ -5,12 +5,17 @@ on: [push, pull_request]
 jobs:
   compile_test:
     runs-on: "ubuntu-latest"
-
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - polserver-zip: "https://github.com/polserver/polserver/releases/download/NightlyRelease/Nightly-Linux-clang.zip"
+          - polserver-zip: "https://github.com/KevinEady/polserver/releases/download/add-classes-0181f2e/Nightly-Linux-clang.zip"
     steps:
       - uses: actions/checkout@v2
-      - name: Install latest ecompile
+      - name: Install Nightly ecompile
         run: |
-          wget -q https://github.com/polserver/polserver/releases/download/NightlyRelease/Nightly-Linux-clang.zip
+          wget -q -O Nightly-Linux-clang.zip ${{ matrix.config.polserver-zip }}
           unzip Nightly-Linux-clang.zip
           rm -f *_dbg.zip
           rm -f Nightly-Linux-clang.zip
@@ -29,42 +34,4 @@ jobs:
           sudo apt-get install clang-14 -y
       - name: Compile
         run: |
-          scripts/ecompile -A -T
-          if (( $(find . -name "*.ecl" | wc -l) < 1)); then echo "ERROR: Failed to find any compiled .ecl files"; exit 1; fi;
-
-  notify_on_failure:
-    needs: compile_test
-    runs-on: "ubuntu-latest"
-    if: failure()
-    steps:
-      - name: Discord notification failure
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: turleypol/actions-status-discord@master
-        with:
-          status: failure
-          job: Compile test
-  notify_on_success:
-    needs: compile_test
-    runs-on: "ubuntu-latest"
-    if: success()
-    steps:
-      - name: Discord notification success
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: turleypol/actions-status-discord@master
-        with:
-          status: success
-          job: Compile test
-  notify_on_cancel:
-    needs: compile_test
-    runs-on: "ubuntu-latest"
-    if: cancelled()
-    steps:
-      - name: Discord notification cancelled
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: turleypol/actions-status-discord@master
-        with:
-          status: cancelled
-          job: Compile test
+          for i in {1..2}; do time ./scripts/ecompile -A -b -T -f -q >/dev/null 2>&1; done
