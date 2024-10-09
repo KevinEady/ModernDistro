@@ -29,7 +29,7 @@ jobs:
       - name: Compile NightlyRelease
         run: |
           TIMEFORMAT=%R
-          for i in {1..2}; do time ./scripts/ecompile -A -b -T -f -q >/dev/null 2>&1; done
+          for i in {1..100}; do time ./scripts/ecompile -A -b -T -f -q >/dev/null 2>&1; done
       - name: Cleanup and Install add-classes-0181f2e ecompile
         run: |
           rm -rf polserver*
@@ -43,4 +43,4 @@ jobs:
       - name: Compile add-classes-0181f2e
         run: |
           TIMEFORMAT=%R
-          for i in {1..2}; do time ./scripts/ecompile -A -b -T -f -q >/dev/null 2>&1; done
+          for i in {1..100}; do time ./scripts/ecompile -A -b -T -f -q >/dev/null 2>&1; done
